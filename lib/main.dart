@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'bottom_bar.dart';
 
 void main() {
   runApp(new MyApp());
@@ -109,7 +110,7 @@ class _Home extends State<Home> {
                 textScaleFactor: 1.2,
               ),
             ),
-            new Container(
+            /*new Container(
               width: largeur,
               height: hauteur * 0.1,
               color: Color(0xFFB6CFFF),
@@ -119,7 +120,8 @@ class _Home extends State<Home> {
                 style: TextStyle(color: Colors.black),
                 textScaleFactor: 1.2,
               ),
-            )
+            )*/
+            BottomBarWidget(),
           ],
         ),
       )),
