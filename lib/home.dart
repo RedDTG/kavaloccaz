@@ -41,7 +41,7 @@ class _Home extends State<Home> {
               children: [
                 new Container(
                   margin: EdgeInsets.only(top: 30),
-                  child: new Image.asset('assets/img/logo.png'),
+                  child: new Image.asset('assets/img/logo_full.png'),
                   width: (largeur / 2),
                 ),
                 new Text('Pour de nouvelles aventures cavalières !',

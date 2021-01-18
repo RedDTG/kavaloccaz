@@ -5,8 +5,5 @@ import 'package:kavaloccaz/home.dart';
 void main() => runApp(MaterialApp(
       //initialRoute: '/home',
       debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => Home(),
-        '/equides': (context) => Equides('Title')
-      },
+      routes: {'/': (context) => Home(), '/equides': (context) => Equides()},
     ));
