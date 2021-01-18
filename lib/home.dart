@@ -55,7 +55,9 @@ class _Home extends State<Home> {
                 width: largeur * 0.70,
                 height: hauteur * 0.08,
                 child: new RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/equipements');
+                  },
                   child: new Text('EQUIPEMENTS',
                       style: TextStyle(fontFamily: 'ArchitectsDaughter')),
                   color: Color(0xFFCDCDCD),

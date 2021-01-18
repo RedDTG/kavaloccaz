@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kavaloccaz/equides.dart';
+import 'package:kavaloccaz/equipements.dart';
 import 'package:kavaloccaz/home.dart';
 
 void main() => runApp(MaterialApp(
@@ -7,6 +8,7 @@ void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => Home(),
-        '/equides': (context) => Equides('Title')
+        '/equides': (context) => Equides('Title'),
+        '/equipements': (context) => Equipements('Title')
       },
     ));
