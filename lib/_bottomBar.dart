@@ -15,9 +15,14 @@ class BottomBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           new Container(
-            child: Image.asset('assets/icons/horse.png'),
-            width: 55,
-            height: 55,
+            child: new FlatButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/equides');
+                },
+                child: new Container(
+                    width: 55,
+                    height: 55,
+                    child: Image.asset('assets/icons/horse.png'))),
           ),
           new Container(
             child: Image.asset('assets/icons/helmet.png'),
