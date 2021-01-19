@@ -8,7 +8,7 @@ void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => Home(),
-        '/equides': (context) => Equides('Title'),
+        '/equides': (context) => Equides(),
         '/equipements': (context) => Equipements('Title')
       },
     ));
