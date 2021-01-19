@@ -9,6 +9,6 @@ void main() => runApp(MaterialApp(
       routes: {
         '/': (context) => Home(),
         '/equides': (context) => Equides(),
-        '/equipements': (context) => Equipements('Title')
+        '/equipements': (context) => Equipements()
       },
     ));

@@ -21,7 +21,9 @@ class BottomBarWidget extends StatelessWidget {
             height: 70,
             child: IconButton(
               icon: Image.asset('assets/icons/horse.png'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/equides');
+              },
             ),
           ),
           new Container(
@@ -31,7 +33,9 @@ class BottomBarWidget extends StatelessWidget {
             height: 70,
             child: IconButton(
               icon: Image.asset('assets/icons/helmet.png'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/equipements');
+              },
             ),
           ),
           new Container(
