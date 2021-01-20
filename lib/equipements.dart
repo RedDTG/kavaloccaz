@@ -80,7 +80,10 @@ class Equipements extends StatelessWidget {
                                         width: largeur * 0.4,
                                         height: hauteur * 0.06,
                                         child: new RaisedButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, '/equipements/cheval');
+                                          },
                                           child: new Text(
                                               'Equipement du cheval',
                                               textAlign: TextAlign.center,
