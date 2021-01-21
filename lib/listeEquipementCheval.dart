@@ -3,7 +3,6 @@ import 'package:kavaloccaz/_bottomBar.dart';
 
 class EquipementsCheval extends StatelessWidget {
   EquipementsCheval();
-
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
@@ -24,289 +23,369 @@ class EquipementsCheval extends StatelessWidget {
                       Color(0xFF276399),
                       Color(0xFF9BC2E5)
                     ])),
-                child: new Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      new Container(
-                          padding:
-                              EdgeInsets.only(top: 20, left: 20, right: 20),
+                child: new Column(children: [
+                  Expanded(
+                      child: new SizedBox(
+                          child: new Scrollbar(
+                              child: new ListView(children: [
+                    new Container(
+                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                        child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              new Text(
+                                'RECOMMANDÉS',
+                                style: TextStyle(
+                                    fontFamily: 'ArchitectsDaughter',
+                                    color: Color(0xFFF6CC33),
+                                    fontSize: 28),
+                              ),
+                              new IconButton(
+                                  icon: Icon(
+                                    Icons.more_horiz,
+                                    color: Colors.white,
+                                    size: 35,
+                                  ),
+                                  onPressed: () {})
+                            ])),
+                    new Container(
+                      margin: EdgeInsets.only(
+                          left: 15, right: 15, top: 5, bottom: 5),
+                      width: largeur,
+                      height: hauteur * 0.22,
+                      child: new Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: new Container(
                           child: new Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                new Text(
-                                  'RECOMMANDÉS',
-                                  style: TextStyle(
-                                      fontFamily: 'ArchitectsDaughter',
-                                      color: Color(0xFFF6CC33),
-                                      fontSize: 28),
+                            children: [
+                              new Container(
+                                  child: new Container(
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            'assets/img/produit1.jpg'))),
+                                width: largeur * 0.35,
+                                margin: EdgeInsets.only(
+                                    top: 15, bottom: 15, left: 15),
+                              )),
+                              new Container(
+                                margin: EdgeInsets.all(15),
+                                width: largeur * 0.41,
+                                child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    new Container(
+                                        alignment: Alignment.center,
+                                        child: new Text('Tapis de cheval',
+                                            style: TextStyle(
+                                                fontFamily: 'OpenSans',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15))),
+                                    new Container(
+                                        margin: EdgeInsets.only(
+                                          bottom: 5,
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: new Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text(
+                                                    'Marque',
+                                                    style: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic),
+                                                  )),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Taille',
+                                                      style: TextStyle(
+                                                          fontStyle: FontStyle
+                                                              .italic))),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Lieu',
+                                                      style: TextStyle(
+                                                          fontStyle: FontStyle
+                                                              .italic)))
+                                            ])),
+                                    new Container(
+                                        child: new Text(
+                                      "D'or descendaient des comme infusé teignant exaltée, eau et enfants fortes soleil jaune d'azur et. Les travers repeché au atroce.",
+                                      style: TextStyle(),
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 3,
+                                    ))
+                                  ],
                                 ),
-                                new IconButton(
-                                    icon: Icon(
-                                      Icons.more_horiz,
-                                      color: Colors.white,
-                                      size: 35,
-                                    ),
-                                    onPressed: () {})
-                              ])),
-                      new Container(
-                        margin: EdgeInsets.only(
-                            left: 15, right: 15, top: 5, bottom: 5),
-                        width: largeur,
-                        height: hauteur * 0.22,
-                        child: new Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: new Container(
-                            child: new Row(
-                              children: [
-                                new Container(
-                                    child: new Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              'assets/img/produit1.jpg'))),
-                                  width: largeur * 0.35,
-                                  margin: EdgeInsets.only(
-                                      top: 15, bottom: 15, left: 15),
-                                )),
-                                new Container(
-                                  margin: EdgeInsets.all(15),
-                                  width: largeur * 0.41,
-                                  child: new Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      new Container(
-                                          alignment: Alignment.center,
-                                          child: new Text('Tapis de cheval',
-                                              style: TextStyle(
-                                                  fontFamily: 'OpenSans',
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 15))),
-                                      new Container(
-                                          margin: EdgeInsets.only(
-                                            bottom: 5,
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: new Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text(
-                                                      'Marque',
-                                                      style: TextStyle(
-                                                          fontStyle:
-                                                              FontStyle.italic),
-                                                    )),
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text('Taille',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic))),
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text('Lieu',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic)))
-                                              ])),
-                                      new Container(
-                                          child: new Text(
-                                        "D'or descendaient des comme infusé teignant exaltée, eau et enfants fortes soleil jaune d'azur et. Les travers repeché au atroce.",
-                                        style: TextStyle(),
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.justify,
-                                        maxLines: 3,
-                                      ))
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                              )
+                            ],
                           ),
                         ),
                       ),
-                      new Container(
-                        margin: EdgeInsets.only(
-                            left: 15, right: 15, top: 5, bottom: 5),
-                        width: largeur,
-                        height: hauteur * 0.22,
-                        child: new Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: new Container(
-                            child: new Row(
-                              children: [
-                                new Container(
-                                    child: new Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              'assets/img/produit1.jpg'))),
-                                  width: largeur * 0.35,
-                                  margin: EdgeInsets.only(
-                                      top: 15, bottom: 15, left: 15),
-                                )),
-                                new Container(
-                                  margin: EdgeInsets.all(15),
-                                  width: largeur * 0.41,
-                                  child: new Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      new Container(
-                                          alignment: Alignment.center,
-                                          child: new Text('Tapis de cheval',
-                                              style: TextStyle(
-                                                  fontFamily: 'OpenSans',
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 15))),
-                                      new Container(
-                                          margin: EdgeInsets.only(
-                                            bottom: 5,
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: new Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text(
-                                                      'Marque',
+                    ),
+                    new Container(
+                      margin: EdgeInsets.only(
+                          left: 15, right: 15, top: 5, bottom: 5),
+                      width: largeur,
+                      height: hauteur * 0.22,
+                      child: new Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: new Container(
+                          child: new Row(
+                            children: [
+                              new Container(
+                                  child: new Container(
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            'assets/img/produit1.jpg'))),
+                                width: largeur * 0.35,
+                                margin: EdgeInsets.only(
+                                    top: 15, bottom: 15, left: 15),
+                              )),
+                              new Container(
+                                margin: EdgeInsets.all(15),
+                                width: largeur * 0.41,
+                                child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    new Container(
+                                        alignment: Alignment.center,
+                                        child: new Text('Tapis de cheval',
+                                            style: TextStyle(
+                                                fontFamily: 'OpenSans',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15))),
+                                    new Container(
+                                        margin: EdgeInsets.only(
+                                          bottom: 5,
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: new Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text(
+                                                    'Marque',
+                                                    style: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic),
+                                                  )),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Taille',
                                                       style: TextStyle(
-                                                          fontStyle:
-                                                              FontStyle.italic),
-                                                    )),
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text('Taille',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic))),
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text('Lieu',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic)))
-                                              ])),
-                                      new Container(
-                                          child: new Text(
-                                        "D'or descendaient des comme infusé teignant exaltée, eau et enfants fortes soleil jaune d'azur et. Les travers repeché au atroce.",
-                                        style: TextStyle(),
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.justify,
-                                        maxLines: 3,
-                                      ))
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                                                          fontStyle: FontStyle
+                                                              .italic))),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Lieu',
+                                                      style: TextStyle(
+                                                          fontStyle: FontStyle
+                                                              .italic)))
+                                            ])),
+                                    new Container(
+                                        child: new Text(
+                                      "D'or descendaient des comme infusé teignant exaltée, eau et enfants fortes soleil jaune d'azur et. Les travers repeché au atroce.",
+                                      style: TextStyle(),
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 3,
+                                    ))
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),
-                      new Container(
-                        margin: EdgeInsets.only(
-                            left: 15, right: 15, top: 5, bottom: 5),
-                        width: largeur,
-                        height: hauteur * 0.22,
-                        child: new Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          child: new Container(
-                            child: new Row(
-                              children: [
-                                new Container(
-                                    child: new Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(15)),
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              'assets/img/produit1.jpg'))),
-                                  width: largeur * 0.35,
-                                  margin: EdgeInsets.only(
-                                      top: 15, bottom: 15, left: 15),
-                                )),
-                                new Container(
-                                  margin: EdgeInsets.all(15),
-                                  width: largeur * 0.41,
-                                  child: new Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      new Container(
-                                          alignment: Alignment.center,
-                                          child: new Text('Tapis de cheval',
-                                              style: TextStyle(
-                                                  fontFamily: 'OpenSans',
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 15))),
-                                      new Container(
-                                          margin: EdgeInsets.only(
-                                            bottom: 5,
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: new Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text(
-                                                      'Marque',
+                    ),
+                    new Container(
+                      margin: EdgeInsets.only(
+                          left: 15, right: 15, top: 5, bottom: 5),
+                      width: largeur,
+                      height: hauteur * 0.22,
+                      child: new Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: new Container(
+                          child: new Row(
+                            children: [
+                              new Container(
+                                  child: new Container(
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            'assets/img/produit1.jpg'))),
+                                width: largeur * 0.35,
+                                margin: EdgeInsets.only(
+                                    top: 15, bottom: 15, left: 15),
+                              )),
+                              new Container(
+                                margin: EdgeInsets.all(15),
+                                width: largeur * 0.41,
+                                child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    new Container(
+                                        alignment: Alignment.center,
+                                        child: new Text('Tapis de cheval',
+                                            style: TextStyle(
+                                                fontFamily: 'OpenSans',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15))),
+                                    new Container(
+                                        margin: EdgeInsets.only(
+                                          bottom: 5,
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: new Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text(
+                                                    'Marque',
+                                                    style: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic),
+                                                  )),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Taille',
                                                       style: TextStyle(
-                                                          fontStyle:
-                                                              FontStyle.italic),
-                                                    )),
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text('Taille',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic))),
-                                                new Container(
-                                                    margin: EdgeInsets.all(3),
-                                                    child: Text('Lieu',
-                                                        style: TextStyle(
-                                                            fontStyle: FontStyle
-                                                                .italic)))
-                                              ])),
-                                      new Container(
-                                          child: new Text(
-                                        "D'or descendaient des comme infusé teignant exaltée, eau et enfants fortes soleil jaune d'azur et. Les travers repeché au atroce.",
-                                        style: TextStyle(),
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.justify,
-                                        maxLines: 3,
-                                      ))
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                                                          fontStyle: FontStyle
+                                                              .italic))),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Lieu',
+                                                      style: TextStyle(
+                                                          fontStyle: FontStyle
+                                                              .italic)))
+                                            ])),
+                                    new Container(
+                                        child: new Text(
+                                      "D'or descendaient des comme infusé teignant exaltée, eau et enfants fortes soleil jaune d'azur et. Les travers repeché au atroce.",
+                                      style: TextStyle(),
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 3,
+                                    ))
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),
-                      BottomBarWidget()
-                    ]))));
+                    ),
+                    new Container(
+                      margin: EdgeInsets.only(
+                          left: 15, right: 15, top: 5, bottom: 5),
+                      width: largeur,
+                      height: hauteur * 0.22,
+                      child: new Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        child: new Container(
+                          child: new Row(
+                            children: [
+                              new Container(
+                                  child: new Container(
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(15)),
+                                    image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(
+                                            'assets/img/produit1.jpg'))),
+                                width: largeur * 0.35,
+                                margin: EdgeInsets.only(
+                                    top: 15, bottom: 15, left: 15),
+                              )),
+                              new Container(
+                                margin: EdgeInsets.all(15),
+                                width: largeur * 0.41,
+                                child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    new Container(
+                                        alignment: Alignment.center,
+                                        child: new Text('Tapis de cheval',
+                                            style: TextStyle(
+                                                fontFamily: 'OpenSans',
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15))),
+                                    new Container(
+                                        margin: EdgeInsets.only(
+                                          bottom: 5,
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: new Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text(
+                                                    'Marque',
+                                                    style: TextStyle(
+                                                        fontStyle:
+                                                            FontStyle.italic),
+                                                  )),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Taille',
+                                                      style: TextStyle(
+                                                          fontStyle: FontStyle
+                                                              .italic))),
+                                              new Container(
+                                                  margin: EdgeInsets.all(3),
+                                                  child: Text('Lieu',
+                                                      style: TextStyle(
+                                                          fontStyle: FontStyle
+                                                              .italic)))
+                                            ])),
+                                    new Container(
+                                        child: new Text(
+                                      "D'or descendaient des comme infusé teignant exaltée, eau et enfants fortes soleil jaune d'azur et. Les travers repeché au atroce.",
+                                      style: TextStyle(),
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 3,
+                                    ))
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ])))),
+                  BottomBarWidget()
+                ]))));
   }
 }
