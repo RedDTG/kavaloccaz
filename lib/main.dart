@@ -15,6 +15,7 @@ void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => Home(),
+        '/emplois': (context) => Emplois("Emplois"),
         '/equides': (context) => Equides(),
         '/equipements': (context) => Equipements(),
         '/equipements/cheval': (context) => EquipementsCheval(),
