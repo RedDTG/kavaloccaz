@@ -9,7 +9,14 @@ class Emplois extends StatelessWidget {
   Emplois(String title) {
     this.title = title;
   }
-
+  final List<String> listEmploi = [
+    "Cavalier",
+    "Cavalier",
+    "Cavalier",
+    "Cavalier",
+    "Cavalier",
+    "Cavalier",
+  ];
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
@@ -49,47 +56,31 @@ class Emplois extends StatelessWidget {
                                   color: Color(0xFFF6CC33),
                                   fontSize: 36))),
                     ]),
-                new Column(children: [
-                  new Container(
-                      decoration: BoxDecoration(
-                          border: Border(
-                            top: BorderSide(
-                                width: 3.0, color: Color(0xFF02155E)),
-                            bottom: BorderSide(
-                                width: 3.0, color: Color(0xFF02155E)),
+                new Container(
+                    child: Expanded(
+                        child: new Expanded(
+                  child: Scrollbar(
+                    child: new ListView.builder(
+                      padding: const EdgeInsets.all(8),
+                      shrinkWrap: true,
+                      itemCount: listEmploi.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          height: 100,
+                          child: Card(
+                            child: Column(
+                              children: <Widget>[
+                                Text(index.toString()),
+                                Text(listEmploi[index]),
+                              ],
+                            ),
                           ),
-                          color: Color(0xFFB6CFFF)),
-                      width: largeur,
-                      height: 55,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          new Container(
-                              width: largeur / 2,
-                              decoration: BoxDecoration(
-                                  border: Border(
-                                top: BorderSide(
-                                    width: 2.0, color: Color(0xFF02155E)),
-                                right: BorderSide(
-                                    width: 1.0, color: Color(0xFF02155E)),
-                              )),
-                              child: new FlatButton(
-                                  onPressed: null, child: Text("Je cherche"))),
-                          new Container(
-                              width: largeur / 2,
-                              decoration: BoxDecoration(
-                                  border: Border(
-                                left: BorderSide(
-                                    width: 1.0, color: Color(0xFF02155E)),
-                                top: BorderSide(
-                                    width: 2.0, color: Color(0xFF02155E)),
-                              )),
-                              child: new FlatButton(
-                                  onPressed: null, child: Text("Je propose")))
-                        ],
-                      )),
-                  BottomBarWidget()
-                ]),
+                        );
+                      },
+                    ),
+                  ),
+                ))),
+                BottomBarWidget()
               ],
             )),
       ),
