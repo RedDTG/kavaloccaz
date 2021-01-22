@@ -37,9 +37,9 @@ class Equides extends StatelessWidget {
                                     margin: EdgeInsets.only(right: 5),
                                     width: largeur * 0.35,
                                     child: Image.asset('assets/img/logo.png')),
-                                new Text('EQUIDÉS',
+                                new Text('EQUIDES',
                                     style: TextStyle(
-                                        fontSize: 30,
+                                        fontSize: 28,
                                         fontFamily: 'ArchitectsDaughter',
                                         color: Color(0xFFF6CC33)))
                               ])),
@@ -54,8 +54,12 @@ class Equides extends StatelessWidget {
                                         width: largeur * 0.4,
                                         height: hauteur * 0.06,
                                         child: new RaisedButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, '/equides/chevaux');
+                                          },
                                           child: new Text('Chevaux',
+                                              textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontFamily:
                                                       'ArchitectsDaughter')),
@@ -64,10 +68,17 @@ class Equides extends StatelessWidget {
                                           elevation: 7.5,
                                         )),
                                     new Container(
-                                        width: largeur * 0.4,
-                                        height: hauteur * 0.4,
-                                        child: new Image.asset(
-                                            'assets/img/cheval.png'))
+                                        child: new FlatButton(
+                                      child: new Container(
+                                          width: largeur * 0.4,
+                                          height: hauteur * 0.4,
+                                          child: new Image.asset(
+                                              'assets/img/cheval.png')),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/equides/chevaux');
+                                      },
+                                    ))
                                   ],
                                 ),
                               ),
@@ -78,8 +89,12 @@ class Equides extends StatelessWidget {
                                         width: largeur * 0.4,
                                         height: hauteur * 0.06,
                                         child: new RaisedButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, '/equides/poneys');
+                                          },
                                           child: new Text('Poneys',
+                                              textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontFamily:
                                                       'ArchitectsDaughter')),
@@ -88,10 +103,17 @@ class Equides extends StatelessWidget {
                                           elevation: 7.5,
                                         )),
                                     new Container(
-                                        width: largeur * 0.4,
-                                        height: hauteur * 0.4,
-                                        child: new Image.asset(
-                                            'assets/img/poney.jpg'))
+                                        child: new FlatButton(
+                                      child: Container(
+                                          width: largeur * 0.4,
+                                          height: hauteur * 0.4,
+                                          child: new Image.asset(
+                                              'assets/img/poney.jpg')),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/equides/poneys');
+                                      },
+                                    ))
                                   ],
                                 ),
                               )

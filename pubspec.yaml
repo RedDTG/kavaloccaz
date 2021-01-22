@@ -60,6 +60,9 @@ flutter:
     - assets/img/selle.png
     - assets/img/equipements.png
     - assets/img/produit1.jpg
+    - assets/img/produit2.jpg
+    - assets/img/produitCheval.jpg
+    - assets/img/produitPoney.jpg
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
