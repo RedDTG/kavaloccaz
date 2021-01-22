@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kavaloccaz/_bottomBar.dart';
 
 class Equides extends StatelessWidget {
-  String title;
-
-  Equides(String title) {
-    this.title = title;
-  }
+  Equides();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +26,111 @@ class Equides extends StatelessWidget {
                     ])),
                 child: new Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: []))));
+                    children: [
+                      new Container(
+                          margin: EdgeInsets.only(
+                              top: 20, right: 20, left: 20, bottom: 0),
+                          child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                new Container(
+                                    margin: EdgeInsets.only(right: 5),
+                                    width: largeur * 0.35,
+                                    child: Image.asset('assets/img/logo.png')),
+                                new Text('EQUIDES',
+                                    style: TextStyle(
+                                        fontSize: 28,
+                                        fontFamily: 'ArchitectsDaughter',
+                                        color: Color(0xFFF6CC33)))
+                              ])),
+                      new Container(
+                        child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              new Container(
+                                child: new Column(
+                                  children: [
+                                    new Container(
+                                        width: largeur * 0.4,
+                                        height: hauteur * 0.06,
+                                        child: new RaisedButton(
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, '/equides/chevaux');
+                                          },
+                                          child: new Text('Chevaux',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontFamily:
+                                                      'ArchitectsDaughter')),
+                                          color: Color(0xFFCDCDCD),
+                                          textColor: Color(0xFF030082),
+                                          elevation: 7.5,
+                                        )),
+                                    new Container(
+                                        child: new FlatButton(
+                                      child: new Container(
+                                          width: largeur * 0.4,
+                                          height: hauteur * 0.4,
+                                          child: new Image.asset(
+                                              'assets/img/cheval.png')),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/equides/chevaux');
+                                      },
+                                    ))
+                                  ],
+                                ),
+                              ),
+                              new Container(
+                                child: new Column(
+                                  children: [
+                                    new Container(
+                                        width: largeur * 0.4,
+                                        height: hauteur * 0.06,
+                                        child: new RaisedButton(
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, '/equides/poneys');
+                                          },
+                                          child: new Text('Poneys',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontFamily:
+                                                      'ArchitectsDaughter')),
+                                          color: Color(0xFFCDCDCD),
+                                          textColor: Color(0xFF030082),
+                                          elevation: 7.5,
+                                        )),
+                                    new Container(
+                                        child: new FlatButton(
+                                      child: Container(
+                                          width: largeur * 0.4,
+                                          height: hauteur * 0.4,
+                                          child: new Image.asset(
+                                              'assets/img/poney.jpg')),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/equides/poneys');
+                                      },
+                                    ))
+                                  ],
+                                ),
+                              )
+                            ]),
+                      ),
+                      new Container(
+                        width: largeur * 0.95,
+                        height: hauteur * 0.08,
+                        color: Colors.grey,
+                        alignment: Alignment.center,
+                        child: new Text(
+                          'publicité',
+                          style: TextStyle(color: Colors.black),
+                          textScaleFactor: 1.2,
+                        ),
+                      ),
+                      BottomBarWidget()
+                    ]))));
   }
 }
