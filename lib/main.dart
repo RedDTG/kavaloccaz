@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kavaloccaz/emplois.dart';
 import 'package:kavaloccaz/equides.dart';
 import 'package:kavaloccaz/equipements.dart';
 import 'package:kavaloccaz/home.dart';
