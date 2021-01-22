@@ -69,10 +69,17 @@ class Equipements extends StatelessWidget {
                                           elevation: 7.5,
                                         )),
                                     new Container(
-                                        width: largeur * 0.4,
-                                        height: hauteur * 0.4,
-                                        child: new Image.asset(
-                                            'assets/img/equipements.png'))
+                                        child: new FlatButton(
+                                      child: new Container(
+                                          width: largeur * 0.4,
+                                          height: hauteur * 0.4,
+                                          child: new Image.asset(
+                                              'assets/img/equipements.png')),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/equipements/cavalier');
+                                      },
+                                    ))
                                   ],
                                 ),
                               ),
@@ -98,10 +105,17 @@ class Equipements extends StatelessWidget {
                                           elevation: 7.5,
                                         )),
                                     new Container(
-                                        width: largeur * 0.4,
-                                        height: hauteur * 0.4,
-                                        child: new Image.asset(
-                                            'assets/img/selle.png'))
+                                        child: new FlatButton(
+                                      child: Container(
+                                          width: largeur * 0.4,
+                                          height: hauteur * 0.4,
+                                          child: new Image.asset(
+                                              'assets/img/selle.png')),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/equipements/cheval');
+                                      },
+                                    ))
                                   ],
                                 ),
                               )
