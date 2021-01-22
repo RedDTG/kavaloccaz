@@ -54,6 +54,7 @@ class Poneys extends StatelessWidget {
                       width: largeur,
                       height: hauteur * 0.22,
                       child: new Card(
+                        color: Color(0xFF9B7565),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                         child: new Container(
@@ -138,6 +139,7 @@ class Poneys extends StatelessWidget {
                       width: largeur,
                       height: hauteur * 0.22,
                       child: new Card(
+                        color: Color(0xFF9B7565),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                         child: new Container(
@@ -222,6 +224,7 @@ class Poneys extends StatelessWidget {
                       width: largeur,
                       height: hauteur * 0.22,
                       child: new Card(
+                        color: Color(0xFF9B7565),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                         child: new Container(
@@ -306,6 +309,7 @@ class Poneys extends StatelessWidget {
                       width: largeur,
                       height: hauteur * 0.22,
                       child: new Card(
+                        color: Color(0xFF9B7565),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                         child: new Container(
