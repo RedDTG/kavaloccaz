@@ -6,6 +6,8 @@ import 'package:kavaloccaz/listeChevaux.dart';
 import 'package:kavaloccaz/listeEquipementCavalier.dart';
 import 'package:kavaloccaz/listeEquipementCheval.dart';
 import 'package:kavaloccaz/listePoneys.dart';
+import 'package:kavaloccaz/Vente/VendreCheval.dart';
+import 'package:kavaloccaz/Vente/VendrePoney.dart';
 
 void main() => runApp(MaterialApp(
       //initialRoute: '/home',
@@ -17,6 +19,8 @@ void main() => runApp(MaterialApp(
         '/equipements/cheval': (context) => EquipementsCheval(),
         '/equipements/cavalier': (context) => EquipementsCavalier(),
         '/equides/chevaux': (context) => Chevaux(),
-        '/equides/poneys': (context) => Poneys()
+        '/equides/poneys': (context) => Poneys(),
+        '/Vente/vendreCheval': (context) => VendreCheval(),
+        '/Vente/vendrePoney': (context) => VendrePoney()
       },
     ));
