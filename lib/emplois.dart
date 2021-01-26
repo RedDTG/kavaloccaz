@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kavaloccaz/home.dart';
 import '_bottomBar.dart';
 
+// ignore: must_be_immutable
 class Emplois extends StatelessWidget {
   String title;
 
