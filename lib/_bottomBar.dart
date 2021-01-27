@@ -4,7 +4,6 @@ class BottomBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
-    double hauteur = MediaQuery.of(context).size.height;
     return Container(
       decoration: BoxDecoration(
           border: Border(top: BorderSide(width: 2.0, color: Colors.white)),
