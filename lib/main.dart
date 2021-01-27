@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kavaloccaz/emplois.dart';
 import 'package:kavaloccaz/equides.dart';
@@ -7,12 +8,22 @@ import 'package:kavaloccaz/listeChevaux.dart';
 import 'package:kavaloccaz/listeEquipementCavalier.dart';
 import 'package:kavaloccaz/listeEquipementCheval.dart';
 import 'package:kavaloccaz/listePoneys.dart';
+import 'package:kavaloccaz/testFirebase.dart';
 import 'package:kavaloccaz/Vente/VendreCheval.dart';
 import 'package:kavaloccaz/Vente/VendrePoney.dart';
 
-void main() => runApp(MaterialApp(
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       //initialRoute: '/home',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       routes: {
         '/': (context) => Home(),
         '/emplois': (context) => Emplois("Emplois"),
@@ -22,7 +33,10 @@ void main() => runApp(MaterialApp(
         '/equipements/cavalier': (context) => EquipementsCavalier(),
         '/equides/chevaux': (context) => Chevaux(),
         '/equides/poneys': (context) => Poneys(),
+        '/testFirebase': (context) => TestFirebase(),
         '/Vente/vendreCheval': (context) => VendreCheval(),
         '/Vente/vendrePoney': (context) => VendrePoney()
       },
-    ));
+    );
+  }
+}

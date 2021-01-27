@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../_bottomBar.dart';
 
+// ignore: must_be_immutable
 class VendrePoney extends StatelessWidget {
   VendrePoney();
 
@@ -31,7 +32,6 @@ class VendrePoney extends StatelessWidget {
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-    
               new Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
