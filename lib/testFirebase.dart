@@ -20,11 +20,12 @@ class TestFirebase extends StatelessWidget {
           return Text("Loading...");
         }
 
-        return new ListView(
+        return new Text(snapshot.data.docs[0].data()['test']);
+        /*ListView(
           children: snapshot.data.docs.map((DocumentSnapshot document) {
             return new Text(document.data()['test']);
           }).toList(),
-        );
+        );*/
       },
     );
   }
