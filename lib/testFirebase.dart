@@ -7,10 +7,11 @@ class TestFirebase extends StatelessWidget {
   TestFirebase();
   @override
   Widget build(BuildContext context) {
-    CollectionReference equipements =
-        FirebaseFirestore.instance.collection('equipements');
+    FirebaseFirestore bdd = FirebaseFirestore.instance;
+    CollectionReference equipementsCavalier =
+        bdd.collection('produits').doc('equipements').collection('cavalier');
     return StreamBuilder<QuerySnapshot>(
-      stream: equipements.snapshots(),
+      stream: equipementsCavalier.snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
           return Text("Allo Houston ? On a un problème !");
@@ -20,7 +21,7 @@ class TestFirebase extends StatelessWidget {
           return Text("Loading...");
         }
 
-        return new Text(snapshot.data.docs[0].data()['test']);
+        return new Text(snapshot.data.docs[0].data()['nom']);
         /*ListView(
           children: snapshot.data.docs.map((DocumentSnapshot document) {
             return new Text(document.data()['test']);
