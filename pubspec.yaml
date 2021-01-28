@@ -67,6 +67,7 @@ flutter:
     - assets/img/produitCheval.jpg
     - assets/img/produitPoney.jpg
     - assets/img/ffelogo.jpg
+    - assets/icons/jobOffer.png
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
