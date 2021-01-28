@@ -41,7 +41,7 @@ class _Home extends State<Home> {
               children: [
                 new Container(
                   margin: EdgeInsets.only(top: 30),
-                  child: new Image.asset('assets/img/logo.png'),
+                  child: new Image.asset('assets/img/logo_full.png'),
                   width: (largeur / 2),
                 ),
                 new Text('Pour de nouvelles aventures cavalières !',
@@ -55,7 +55,9 @@ class _Home extends State<Home> {
                 width: largeur * 0.70,
                 height: hauteur * 0.08,
                 child: new RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/equipements');
+                  },
                   child: new Text('EQUIPEMENTS',
                       style: TextStyle(fontFamily: 'ArchitectsDaughter')),
                   color: Color(0xFFCDCDCD),
@@ -79,7 +81,9 @@ class _Home extends State<Home> {
                 width: largeur * 0.70,
                 height: hauteur * 0.08,
                 child: new RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/testFirebase');
+                  },
                   child: new Text('EMPLOIS',
                       style: TextStyle(fontFamily: 'ArchitectsDaughter')),
                   color: Color(0xFFCDCDCD),

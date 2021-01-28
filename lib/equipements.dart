@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kavaloccaz/_bottomBar.dart';
 
-class Equides extends StatelessWidget {
-  Equides();
+class Equipements extends StatelessWidget {
+  Equipements();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class Equides extends StatelessWidget {
                                     margin: EdgeInsets.only(right: 5),
                                     width: largeur * 0.35,
                                     child: Image.asset('assets/img/logo.png')),
-                                new Text('EQUIDES',
+                                new Text('EQUIPEMENTS',
                                     style: TextStyle(
                                         fontSize: 28,
                                         fontFamily: 'ArchitectsDaughter',
@@ -55,10 +55,11 @@ class Equides extends StatelessWidget {
                                         height: hauteur * 0.06,
                                         child: new RaisedButton(
                                           onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, '/equides/chevaux');
+                                            Navigator.pushNamed(context,
+                                                '/equipements/cavalier');
                                           },
-                                          child: new Text('Chevaux',
+                                          child: new Text(
+                                              'Equipements du cavalier',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontFamily:
@@ -73,10 +74,10 @@ class Equides extends StatelessWidget {
                                           width: largeur * 0.4,
                                           height: hauteur * 0.4,
                                           child: new Image.asset(
-                                              'assets/img/cheval.png')),
+                                              'assets/img/equipements.png')),
                                       onPressed: () {
                                         Navigator.pushNamed(
-                                            context, '/equides/chevaux');
+                                            context, '/equipements/cavalier');
                                       },
                                     ))
                                   ],
@@ -91,9 +92,10 @@ class Equides extends StatelessWidget {
                                         child: new RaisedButton(
                                           onPressed: () {
                                             Navigator.pushNamed(
-                                                context, '/equides/poneys');
+                                                context, '/equipements/cheval');
                                           },
-                                          child: new Text('Poneys',
+                                          child: new Text(
+                                              'Equipement du cheval',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontFamily:
@@ -108,10 +110,10 @@ class Equides extends StatelessWidget {
                                           width: largeur * 0.4,
                                           height: hauteur * 0.4,
                                           child: new Image.asset(
-                                              'assets/img/poney.jpg')),
+                                              'assets/img/selle.png')),
                                       onPressed: () {
                                         Navigator.pushNamed(
-                                            context, '/equides/poneys');
+                                            context, '/equipements/cheval');
                                       },
                                     ))
                                   ],
