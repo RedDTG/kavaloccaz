@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:kavaloccaz/annonceView.dart';
 import 'package:kavaloccaz/home.dart';
 import '_bottomBar.dart';
+import 'annonceModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // ignore: must_be_immutable
@@ -39,8 +41,9 @@ class Emplois extends StatelessWidget {
   Emplois(String title) {
     this.title = title;
   }
-  FirebaseFirestore bdd = FirebaseFirestore.instance;
 
+  FirebaseFirestore bdd = FirebaseFirestore.instance;
+  final newAnnonce = new Annonce(null, null, null, null);
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
@@ -66,6 +69,18 @@ class Emplois extends StatelessWidget {
                         fontSize: 25,
                         fontWeight: FontWeight.bold),
                   ),
+                  actions: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.add),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    newAnnonceView(annonce: newAnnonce),
+                              ));
+                        })
+                  ],
                   bottom: TabBar(
                     isScrollable: true,
                     labelColor: Colors.black,
@@ -264,7 +279,7 @@ Widget listView(snapshot, largeur, hauteur) {
                               margin: EdgeInsets.only(
                                   top: 15, bottom: 15, left: 15),
                               child: Text(
-                                snapshot.data.docs[index]['date'],
+                                snapshot.data.docs[index]['date'].toString(),
                                 style: TextStyle(
                                     fontSize: 8.0,
                                     fontFamily: 'OpenSans',
