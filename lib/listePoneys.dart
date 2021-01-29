@@ -69,7 +69,7 @@ class Poneys extends StatelessWidget {
                           }
 
                           return SizedBox(
-                              height: 200.0,
+                              height: hauteur * 0.77,
                               child: ListView.builder(
                                 itemCount: snapshot.data.docs.length,
                                 itemBuilder: (BuildContext context, int index) {
@@ -131,10 +131,10 @@ class Poneys extends StatelessWidget {
                                                       ),
                                                       alignment:
                                                           Alignment.center,
-                                                      child: new Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
+                                                      child: new Wrap(
+                                                          alignment:
+                                                              WrapAlignment
+                                                                  .center,
                                                           children: [
                                                             new Container(
                                                                 margin:
