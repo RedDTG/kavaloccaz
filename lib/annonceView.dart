@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kavaloccaz/annonceModel.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:kavaloccaz/annonceView_confirm.dart';
-import 'package:intl/date_symbol_data_file.dart';
 
 class newAnnonceView extends StatelessWidget {
   final Annonce annonce;
-  newAnnonceView({Key key, @required this.annonce}) : super(key: key);
+  newAnnonceView({
+    Key key,
+    @required this.annonce,
+  }) : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -17,50 +20,90 @@ class newAnnonceView extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Créer une annonce'),
+          iconTheme: IconThemeData(color: Colors.black),
+          bottomOpacity: 4.0,
+          shadowColor: Colors.black,
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: Text(
+            'Créer une annonce',
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: SingleChildScrollView(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Titre de l'annonce"),
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: TextField(
-                    controller: _titreController,
-                    autofocus: true,
-                  ),
+                      textAlign: TextAlign.left,
+                      controller: _titreController,
+                      autocorrect: true,
+                      maxLength: 50,
+                      autofocus: true,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                      decoration: InputDecoration(
+                          labelText: "TITRE",
+                          prefixIcon: Icon(Icons.title),
+                          helperText: "exemple : CDI Cavalier",
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                          focusColor: Colors.black)),
                 ),
-                Text("Localisation de votre annonce (ex : 44000 Nantes)"),
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: TextField(
-                    controller: _localisationController,
-                    autofocus: true,
-                  ),
+                      textAlign: TextAlign.left,
+                      controller: _localisationController,
+                      autocorrect: true,
+                      maxLength: 50,
+                      autofocus: true,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                      decoration: InputDecoration(
+                          labelText: "LOCALISATION",
+                          prefixIcon: Icon(Icons.location_pin),
+                          helperText: "exemple : 44000 Nantes",
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                          focusColor: Colors.black)),
                 ),
-                Text("Description de votre annonce"),
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: TextField(
-                    controller: _descriptionController,
-                    autofocus: true,
-                  ),
+                      textAlign: TextAlign.left,
+                      controller: _descriptionController,
+                      autocorrect: true,
+                      maxLength: 50,
+                      autofocus: true,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                      decoration: InputDecoration(
+                          labelText: "DESCRIPTION",
+                          prefixIcon: Icon(Icons.description),
+                          helperText:
+                              "exemple : Je propose un poste de cavalier à partir du 25 Janvier",
+                          helperMaxLines: 3,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                          focusColor: Colors.black)),
                 ),
                 RaisedButton(
-                  child: Text('Continuer'),
-                  onPressed: () {
-                    annonce.title = _titreController.text;
-                    annonce.localisation = _localisationController.text;
-                    annonce.description = _descriptionController.text;
-                    annonce.date = dateNow();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                newAnnonceView_confirm(annonce: annonce)));
-                  },
-                )
+                    color: Colors.white,
+                    splashColor: Colors.blueAccent,
+                    child: Text('Continuer'),
+                    onPressed: () {
+                      annonce.title = _titreController.text;
+                      annonce.localisation = _localisationController.text;
+                      annonce.description = _descriptionController.text;
+                      annonce.date = dateNow();
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return newAnnonceView_confirm(annonce: annonce);
+                      }));
+                    })
               ]),
         ));
   }

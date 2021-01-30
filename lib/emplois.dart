@@ -4,6 +4,7 @@ import 'package:kavaloccaz/annonceView.dart';
 import 'package:kavaloccaz/home.dart';
 import '_bottomBar.dart';
 import 'annonceModel.dart';
+import 'annonceViewChoice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // ignore: must_be_immutable
@@ -76,13 +77,11 @@ class Emplois extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>
-                                    newAnnonceView(annonce: newAnnonce),
+                                builder: (context) => newAnnonceViewChoice(),
                               ));
                         })
                   ],
                   bottom: TabBar(
-                    isScrollable: true,
                     labelColor: Colors.black,
                     unselectedLabelColor: Colors.white,
                     indicator: BoxDecoration(
