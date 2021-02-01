@@ -11,6 +11,7 @@ import 'package:kavaloccaz/listePoneys.dart';
 import 'package:kavaloccaz/testFirebase.dart';
 import 'package:kavaloccaz/Vente/VendreCheval.dart';
 import 'package:kavaloccaz/Vente/VendrePoney.dart';
+import 'package:kavaloccaz/vente.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,8 +35,9 @@ class MyApp extends StatelessWidget {
         '/equides/chevaux': (context) => Chevaux(),
         '/equides/poneys': (context) => Poneys(),
         '/testFirebase': (context) => TestFirebase(),
-        '/Vente/vendreCheval': (context) => VendreCheval(),
-        '/Vente/vendrePoney': (context) => VendrePoney()
+        '/vente/cheval': (context) => VendreCheval(),
+        '/vente/poney': (context) => VendrePoney(),
+        '/vente': (context) => Vente()
       },
     );
   }
