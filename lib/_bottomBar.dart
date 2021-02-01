@@ -45,7 +45,7 @@ class BottomBarWidget extends StatelessWidget {
               width: 67,
               height: 67,
               decoration: BoxDecoration(
-                  shape: BoxShape.circle, color: Color(0xFFDCDCDC)),
+                  shape: BoxShape.circle, color: Colors.white /*(0xFFDCDCDC)*/),
               child: Image.asset('assets/icons/add.png'),
             ),
           ),
