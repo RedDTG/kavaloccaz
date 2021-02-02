@@ -1,75 +1,174 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:kavaloccaz/annonceView.dart';
+import 'package:kavaloccaz/home.dart';
 import '_bottomBar.dart';
+import 'annonceModel.dart';
+import 'annonceViewChoice.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 // ignore: must_be_immutable
+/*
+class GridDetails extends StatefulWidget{
+    final List listEmploi;
+    GridDetails({@required this.listEmploi});
+
+    @override
+    GridDetailsState createState() => GridDetailsState();
+}
+
+class GridDetailsState extends State<GridDetails> {
+  //
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget> [
+            
+          ],
+          ),),
+    )
+  }
+}*/
+
 class Emplois extends StatelessWidget {
   String title;
 
   Emplois(String title) {
     this.title = title;
   }
-  final List<String> listEmploi = [
-    "Cavalier",
-    "Cavalier",
-    "Cavalier",
-    "Cavalier",
-    "Cavalier",
-    "Cavalier",
-  ];
 
-  final List<String> descList = [
-    "Nullam lacinia congue purus, facilisis maximus tellus bibendum eufacilisis maximus tellus bibendum eu.",
-    "Nullam lacinia congue purus, facilisis maximus tellus bibendum eu.",
-    "Nullam lacinia congue purus, facilisis maximus tellus bibendum eu.",
-    "Nullam lacinia congue purus, facilisis maximus tellus bibendum eu.",
-    "Nullam lacinia congue purus, facilisis maximus tellus bibendum eu.",
-    "Nullam lacinia congue purus, facilisis maximus tellus bibendum eu.",
-  ];
-
-  final List<String> positionList = [
-    "44000 Nantes",
-    "44000 Nantes",
-    "44000 Nantes",
-    "44000 Nantes",
-    "44000 Nantes",
-    "44000 Nantes",
-  ];
+  FirebaseFirestore bdd = FirebaseFirestore.instance;
+  final newAnnonce = new Annonce(null, null, null, null);
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
+    CollectionReference emploisR =
+        bdd.collection('emplois').doc('recherche').collection('annonce');
+    CollectionReference emploisD =
+        bdd.collection('emplois').doc('demande').collection('annonce');
+    return MaterialApp(
+        home: DefaultTabController(
+            length: 2,
+            child: Scaffold(
+                backgroundColor: Colors.white,
+                bottomNavigationBar: BottomBarWidget(),
+                appBar: AppBar(
+                  backgroundColor: Colors.black,
+                  centerTitle: true,
+                  title: Text(
+                    'EMPLOIS',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'ArchitectsDaughter',
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  actions: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.add),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => newAnnonceViewChoice(),
+                              ));
+                        })
+                  ],
+                  bottom: TabBar(
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.white,
+                    indicator: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10)),
+                        color: Colors.white),
+                    tabs: [
+                      Tab(
+                          child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'JE CHERCHE',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'OpenSans',
+                                ),
+                              ))),
+                      Tab(
+                          child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'JE PROPOSE',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'OpenSans',
+                                ),
+                              ))),
+                    ],
+                  ),
+                ),
+                body: TabBarView(children: [
+                  new Center(
+                    child: new Container(
+                      child: new Expanded(
+                        child: Column(
+                          children: [
+                            new StreamBuilder<QuerySnapshot>(
+                                stream: emploisR.snapshots(),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                                  if (snapshot.hasError) {
+                                    return Text(
+                                        "Allo Houston ? On a un problème !");
+                                  }
 
-    return new Scaffold(
-        body: new Center(
-      child: new Container(
-        margin: EdgeInsets.all(0),
-        width: largeur,
-        height: hauteur,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment(0.0, -0.25),
-                end: Alignment(0.0, 0.85),
-                colors: [
-              Color(0xFF011E55),
-              Color(0xFF276399),
-              Color(0xFF9BC2E5)
-            ])),
-        child: new Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              topTitle(largeur),
-              listView(positionList, descList, listEmploi, largeur, hauteur),
-              BottomBarWidget()
-            ],
-          ),
-        ),
-      ),
-    ));
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return Text("Loading...");
+                                  }
+                                  return listView(snapshot, largeur, hauteur);
+                                })
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  new Center(
+                    child: new Container(
+                      child: new Expanded(
+                        child: Column(
+                          children: [
+                            new StreamBuilder<QuerySnapshot>(
+                                stream: emploisD.snapshots(),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                                  if (snapshot.hasError) {
+                                    return Text(
+                                        "Allo Houston ? On a un problème !");
+                                  }
+
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return Text("Loading...");
+                                  }
+                                  return listView(snapshot, largeur, hauteur);
+                                })
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ]))));
   }
 }
 
+/*
 Widget topTitle(largeur) {
   return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
     new Container(
@@ -87,8 +186,8 @@ Widget topTitle(largeur) {
                 fontSize: 28))),
   ]);
 }
-
-Widget listView(positionList, descList, listEmploi, largeur, hauteur) {
+*/
+Widget listView(snapshot, largeur, hauteur) {
   return Expanded(
     child: Scrollbar(
       child: new GridView.builder(
@@ -98,7 +197,7 @@ Widget listView(positionList, descList, listEmploi, largeur, hauteur) {
           childAspectRatio: 8.0 / 10.0,
           crossAxisCount: 2,
         ),
-        itemCount: listEmploi.length,
+        itemCount: snapshot.data.docs.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
               onTap: () {},
@@ -127,7 +226,7 @@ Widget listView(positionList, descList, listEmploi, largeur, hauteur) {
                             margin: EdgeInsets.only(
                                 bottom: 10, left: 25, right: 25),
                             child: Text(
-                              listEmploi[index],
+                              snapshot.data.docs[index].data()['nom'],
                               style: TextStyle(
                                   fontSize: 16.0, fontWeight: FontWeight.bold),
                             )),
@@ -136,7 +235,7 @@ Widget listView(positionList, descList, listEmploi, largeur, hauteur) {
                             Container(
                               margin: EdgeInsets.only(left: 25, right: 25),
                               child: Text(
-                                descList[index],
+                                snapshot.data.docs[index]['description'],
                                 style: TextStyle(
                                   fontSize: 9.0,
                                   fontFamily: 'OpenSans',
@@ -161,7 +260,7 @@ Widget listView(positionList, descList, listEmploi, largeur, hauteur) {
                               margin:
                                   EdgeInsets.only(left: 25, right: 25, top: 5),
                               child: Text(
-                                positionList[index],
+                                snapshot.data.docs[index]['position'],
                                 style: TextStyle(
                                   fontSize: 8.0,
                                   color: Colors.white,
@@ -179,7 +278,7 @@ Widget listView(positionList, descList, listEmploi, largeur, hauteur) {
                               margin: EdgeInsets.only(
                                   top: 15, bottom: 15, left: 15),
                               child: Text(
-                                '20/03/2021',
+                                snapshot.data.docs[index]['date'].toString(),
                                 style: TextStyle(
                                     fontSize: 8.0,
                                     fontFamily: 'OpenSans',
