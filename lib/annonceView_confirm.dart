@@ -6,7 +6,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class newAnnonceView_confirm extends StatelessWidget {
   final db = FirebaseFirestore.instance;
   final Annonce annonce;
-  newAnnonceView_confirm({Key key, @required this.annonce}) : super(key: key);
+  String choix;
+  newAnnonceView_confirm(
+      {Key key, @required this.annonce, @required this.choix})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +128,7 @@ class newAnnonceView_confirm extends StatelessWidget {
                 {
                   await db
                       .collection('emplois')
-                      .doc('recherche')
+                      .doc(choix)
                       .collection('annonce')
                       .add(annonce.toJson());
                 }
