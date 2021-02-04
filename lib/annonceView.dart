@@ -5,8 +5,10 @@ import 'package:kavaloccaz/annonceView_confirm.dart';
 
 class newAnnonceView extends StatelessWidget {
   final Annonce annonce;
+  String choix;
   newAnnonceView({
     Key key,
+    @required this.choix,
     @required this.annonce,
   }) : super(
           key: key,
@@ -101,7 +103,8 @@ class newAnnonceView extends StatelessWidget {
                       annonce.date = dateNow();
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return newAnnonceView_confirm(annonce: annonce);
+                        return newAnnonceView_confirm(
+                            annonce: annonce, choix: choix);
                       }));
                     })
               ]),
@@ -111,7 +114,7 @@ class newAnnonceView extends StatelessWidget {
 
 dateNow() {
   final DateTime now = DateTime.now();
-  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+  final DateFormat formatter = DateFormat('dd-MM-yyyy');
   final String date = formatter.format(now);
   return date;
 }

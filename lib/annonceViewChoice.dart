@@ -29,11 +29,14 @@ class newAnnonceViewChoice extends StatelessWidget {
                 buttonColor: Colors.white,
                 child: RaisedButton(
                   onPressed: () {
+                    String choix = 'recherche';
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                newAnnonceView(annonce: newAnnonce)));
+                            builder: (context) => newAnnonceView(
+                                  annonce: newAnnonce,
+                                  choix: choix,
+                                )));
                   },
                   child: Text("JE CHERCHE"),
                 ),
@@ -44,7 +47,16 @@ class newAnnonceViewChoice extends StatelessWidget {
                 height: 100.0,
                 buttonColor: Colors.white,
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    String choix = 'demande';
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => newAnnonceView(
+                                  annonce: newAnnonce,
+                                  choix: choix,
+                                )));
+                  },
                   child: Text("JE PROPOSE"),
                 ),
               ))
