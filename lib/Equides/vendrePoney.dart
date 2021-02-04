@@ -45,7 +45,7 @@ class VendrePoney extends StatelessWidget {
                                 margin: EdgeInsets.only(right: 5),
                                 width: largeur * 0.35,
                                 child: Image.asset('assets/img/logo.png')),
-                            new Text('Equipement',
+                            new Text('EQUIDÉS',
                                 style: TextStyle(
                                     fontSize: 30,
                                     fontFamily: 'ArchitectsDaughter',
@@ -59,7 +59,7 @@ class VendrePoney extends StatelessWidget {
                     margin: EdgeInsets.only(bottom: 15.0, top: 5.0),
                     child: new RaisedButton(
                       onPressed: () {},
-                      child: new Text('VENDRE UN EQUIPEMENT',
+                      child: new Text('VENDRE UN PONEY',
                           style: TextStyle(
                               fontFamily: 'ArchitectsDaughter',
                               fontSize: 20.0)),
@@ -95,7 +95,7 @@ class VendrePoney extends StatelessWidget {
                           borderSide:
                               const BorderSide(color: Colors.white, width: 2.0),
                         ),
-                        labelText: "La catégorie",
+                        labelText: "La race",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -127,7 +127,23 @@ class VendrePoney extends StatelessWidget {
                           borderSide:
                               const BorderSide(color: Colors.white, width: 2.0),
                         ),
-                        labelText: "Pour qui ?",
+                        labelText: "Le type de loisirs",
+                      ),
+                      keyboardType: TextInputType.text,
+                    ),
+                  ),
+                  new Container(
+                    width: largeur * 0.55,
+                    height: hauteur * 0.06,
+                    margin: EdgeInsets.all(7.0),
+                    color: Color(0xFFCDCDCD),
+                    child: new TextField(
+                      decoration: new InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.white, width: 2.0),
+                        ),
+                        labelText: "Le poids",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -163,6 +179,18 @@ class VendrePoney extends StatelessWidget {
                       color: Color(0xFFCDCDCD),
                       textColor: Color(0xFF030082),
                       elevation: 7.5,
+                    ),
+                  ),
+                  new Container(
+                    width: largeur * 0.95,
+                    height: hauteur * 0.08,
+                    color: Colors.grey,
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(top: 10.0),
+                    child: new Text(
+                      'publicité',
+                      style: TextStyle(color: Colors.black),
+                      textScaleFactor: 1.2,
                     ),
                   ),
                 ],

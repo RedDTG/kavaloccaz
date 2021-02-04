@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../_bottomBar.dart';
 
 // ignore: must_be_immutable
-class VendrePoney extends StatelessWidget {
-  VendrePoney();
+class VendreProduit extends StatelessWidget {
+  VendreProduit();
 
   String nom;
 
@@ -12,10 +12,8 @@ class VendrePoney extends StatelessWidget {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
 
-    return new GestureDetector(
-      onTap: (() => FocusScope.of(context).requestFocus(new FocusNode())),
-      child: Scaffold(
-          body: new Center(
+    return new Scaffold(
+          body: SingleChildScrollView(
         child: new Container(
           margin: EdgeInsets.all(0),
           width: largeur,
@@ -37,7 +35,7 @@ class VendrePoney extends StatelessWidget {
                 children: [
                   new Container(
                       margin: EdgeInsets.only(
-                          top: 20, right: 20, left: 20, bottom: 0),
+                          top: 9, right: 20, left: 20, bottom: 0),
                       child: new Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -45,7 +43,7 @@ class VendrePoney extends StatelessWidget {
                                 margin: EdgeInsets.only(right: 5),
                                 width: largeur * 0.35,
                                 child: Image.asset('assets/img/logo.png')),
-                            new Text('EQUIDÉS',
+                            new Text('Equipement',
                                 style: TextStyle(
                                     fontSize: 30,
                                     fontFamily: 'ArchitectsDaughter',
@@ -59,7 +57,7 @@ class VendrePoney extends StatelessWidget {
                     margin: EdgeInsets.only(bottom: 15.0, top: 5.0),
                     child: new RaisedButton(
                       onPressed: () {},
-                      child: new Text('VENDRE UN PONEY',
+                      child: new Text('VENDRE UN EQUIPEMENT',
                           style: TextStyle(
                               fontFamily: 'ArchitectsDaughter',
                               fontSize: 20.0)),
@@ -95,7 +93,7 @@ class VendrePoney extends StatelessWidget {
                           borderSide:
                               const BorderSide(color: Colors.white, width: 2.0),
                         ),
-                        labelText: "La race",
+                        labelText: "La catégorie",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -127,23 +125,7 @@ class VendrePoney extends StatelessWidget {
                           borderSide:
                               const BorderSide(color: Colors.white, width: 2.0),
                         ),
-                        labelText: "Le type de loisirs",
-                      ),
-                      keyboardType: TextInputType.text,
-                    ),
-                  ),
-                  new Container(
-                    width: largeur * 0.55,
-                    height: hauteur * 0.06,
-                    margin: EdgeInsets.all(7.0),
-                    color: Color(0xFFCDCDCD),
-                    child: new TextField(
-                      decoration: new InputDecoration(
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.white, width: 2.0),
-                        ),
-                        labelText: "Le poids",
+                        labelText: "Pour qui ?",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -181,13 +163,24 @@ class VendrePoney extends StatelessWidget {
                       elevation: 7.5,
                     ),
                   ),
+                  new Container(
+                    width: largeur * 0.95,
+                    height: hauteur * 0.08,
+                    color: Colors.grey,
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(top: 10.0),
+                    child: new Text(
+                      'publicité',
+                      style: TextStyle(color: Colors.black),
+                      textScaleFactor: 1.2,
+                    ),
+                  ),
                 ],
               ),
               BottomBarWidget(),
             ],
           ),
         ),
-      )),
-    );
+      ));
   }
 }
