@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kavaloccaz/models/annonceModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// ignore: must_be_immutable
 class NewAnnonceViewConfirm extends StatelessWidget {
   final db = FirebaseFirestore.instance;
   final Annonce annonce;
   String choix;
   NewAnnonceViewConfirm({Key key, @required this.annonce, @required this.choix})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

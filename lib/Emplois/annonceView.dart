@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:kavaloccaz/models/annonceModel.dart';
 import 'annonceView_confirm.dart';
 
+// ignore: must_be_immutable
 class NewAnnonceView extends StatelessWidget {
   final Annonce annonce;
   String choix;
