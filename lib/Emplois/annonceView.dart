@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:kavaloccaz/annonceModel.dart';
-import 'package:kavaloccaz/annonceView_confirm.dart';
+import 'package:kavaloccaz/models/annonceModel.dart';
+import 'annonceView_confirm.dart';
 
-class newAnnonceView extends StatelessWidget {
+class NewAnnonceView extends StatelessWidget {
   final Annonce annonce;
+<<<<<<< HEAD:lib/annonceView.dart
+  String choix;
   newAnnonceView({
+=======
+  NewAnnonceView({
+>>>>>>> red:lib/Emplois/annonceView.dart
     Key key,
+    @required this.choix,
     @required this.annonce,
   }) : super(
           key: key,
@@ -101,7 +107,12 @@ class newAnnonceView extends StatelessWidget {
                       annonce.date = dateNow();
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return newAnnonceView_confirm(annonce: annonce);
+<<<<<<< HEAD:lib/annonceView.dart
+                        return newAnnonceView_confirm(
+                            annonce: annonce, choix: choix);
+=======
+                        return NewAnnonceViewConfirm(annonce: annonce);
+>>>>>>> red:lib/Emplois/annonceView.dart
                       }));
                     })
               ]),
@@ -111,7 +122,7 @@ class newAnnonceView extends StatelessWidget {
 
 dateNow() {
   final DateTime now = DateTime.now();
-  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+  final DateFormat formatter = DateFormat('dd-MM-yyyy');
   final String date = formatter.format(now);
   return date;
 }

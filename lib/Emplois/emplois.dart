@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kavaloccaz/annonceView.dart';
-import 'package:kavaloccaz/home.dart';
-import '_bottomBar.dart';
-import 'annonceModel.dart';
+import '../_bottomBar.dart';
+import '../models/annonceModel.dart';
 import 'annonceViewChoice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -77,7 +75,7 @@ class Emplois extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => newAnnonceViewChoice(),
+                                builder: (context) => NewAnnonceViewChoice(),
                               ));
                         })
                   ],
@@ -200,7 +198,9 @@ Widget listView(snapshot, largeur, hauteur) {
         itemCount: snapshot.data.docs.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                showCard(context, snapshot, index);
+              },
               child: Card(
                   semanticContainer: true,
                   elevation: 7.0,
@@ -308,4 +308,45 @@ Widget listView(snapshot, largeur, hauteur) {
       ),
     ),
   );
+}
+
+showCard(context, snapshot, index) {
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Material(
+            type: MaterialType.transparency,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              padding: EdgeInsets.all(15),
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                      'assets/img/ffelogo.jpg',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    snapshot.data.docs[index]['nom'],
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      });
 }
