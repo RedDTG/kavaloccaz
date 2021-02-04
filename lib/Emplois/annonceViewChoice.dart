@@ -33,15 +33,10 @@ class NewAnnonceViewChoice extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-<<<<<<< HEAD:lib/annonceViewChoice.dart
-                            builder: (context) => newAnnonceView(
+                            builder: (context) => NewAnnonceView(
                                   annonce: newAnnonce,
                                   choix: choix,
                                 )));
-=======
-                            builder: (context) =>
-                                NewAnnonceView(annonce: newAnnonce)));
->>>>>>> red:lib/Emplois/annonceViewChoice.dart
                   },
                   child: Text("JE CHERCHE"),
                 ),
@@ -57,7 +52,7 @@ class NewAnnonceViewChoice extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => newAnnonceView(
+                            builder: (context) => NewAnnonceView(
                                   annonce: newAnnonce,
                                   choix: choix,
                                 )));
