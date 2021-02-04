@@ -81,7 +81,7 @@ class Vente extends StatelessWidget {
                         borderRadius:
                             BorderRadius.all(const Radius.circular(20))),
                     child: new Image.network(
-                        'https://upload.wikimedia.org/wikipedia/commons/f/f7/Mangalarga_Marchador_Conforma%C3%A7%C3%A3o.jpg'),
+                        'https://www.sortiraparis.com/images/58/77153/452669-un-poney-club-gratuit-au-carre-senart.jpg'),
                   ),
                   new Container(
                       width: largeur * 0.4,
@@ -113,7 +113,7 @@ class Vente extends StatelessWidget {
                         borderRadius:
                             BorderRadius.all(const Radius.circular(20))),
                     child: new Image.network(
-                        'https://upload.wikimedia.org/wikipedia/commons/f/f7/Mangalarga_Marchador_Conforma%C3%A7%C3%A3o.jpg'),
+                        'https://www.atelierducheval.com/media/catalog/category/selles-bloc2.jpg'),
                   ),
                   new Container(
                       width: largeur * 0.4,
@@ -141,7 +141,7 @@ class Vente extends StatelessWidget {
                         borderRadius:
                             BorderRadius.all(const Radius.circular(20))),
                     child: new Image.network(
-                        'https://upload.wikimedia.org/wikipedia/commons/f/f7/Mangalarga_Marchador_Conforma%C3%A7%C3%A3o.jpg'),
+                        'https://i.skyrock.net/1980/85561980/pics/3120683521_1_19_7cdhiixS.jpg'),
                   ),
                   new Container(
                       width: largeur * 0.4,

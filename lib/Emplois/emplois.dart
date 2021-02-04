@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kavaloccaz/annonceView.dart';
-import 'package:kavaloccaz/home.dart';
-import '_bottomBar.dart';
-import 'annonceModel.dart';
+import '../_bottomBar.dart';
+import '../models/annonceModel.dart';
 import 'annonceViewChoice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -77,7 +75,7 @@ class Emplois extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => newAnnonceViewChoice(),
+                                builder: (context) => NewAnnonceViewChoice(),
                               ));
                         })
                   ],

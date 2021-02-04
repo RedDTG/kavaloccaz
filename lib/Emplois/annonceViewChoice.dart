@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kavaloccaz/annonceView.dart';
-import 'annonceModel.dart';
+import 'annonceView.dart';
+import '../models/annonceModel.dart';
 
-class newAnnonceViewChoice extends StatelessWidget {
+class NewAnnonceViewChoice extends StatelessWidget {
   final newAnnonce = new Annonce(null, null, null, null);
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class newAnnonceViewChoice extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                newAnnonceView(annonce: newAnnonce)));
+                                NewAnnonceView(annonce: newAnnonce)));
                   },
                   child: Text("JE CHERCHE"),
                 ),

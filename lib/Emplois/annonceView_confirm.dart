@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:kavaloccaz/annonceModel.dart';
+import 'package:kavaloccaz/models/annonceModel.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class newAnnonceView_confirm extends StatelessWidget {
+class NewAnnonceViewConfirm extends StatelessWidget {
   final db = FirebaseFirestore.instance;
   final Annonce annonce;
-  newAnnonceView_confirm({Key key, @required this.annonce}) : super(key: key);
+  NewAnnonceViewConfirm({Key key, @required this.annonce}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

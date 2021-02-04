@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:kavaloccaz/annonceModel.dart';
-import 'package:kavaloccaz/annonceView_confirm.dart';
+import 'package:kavaloccaz/models/annonceModel.dart';
+import 'annonceView_confirm.dart';
 
-class newAnnonceView extends StatelessWidget {
+class NewAnnonceView extends StatelessWidget {
   final Annonce annonce;
-  newAnnonceView({
+  NewAnnonceView({
     Key key,
     @required this.annonce,
   }) : super(
@@ -101,7 +101,7 @@ class newAnnonceView extends StatelessWidget {
                       annonce.date = dateNow();
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return newAnnonceView_confirm(annonce: annonce);
+                        return NewAnnonceViewConfirm(annonce: annonce);
                       }));
                     })
               ]),
