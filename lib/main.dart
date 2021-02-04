@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:kavaloccaz/Vente/vendreProduit.dart';
 import 'package:kavaloccaz/emplois.dart';
 import 'package:kavaloccaz/equides.dart';
 import 'package:kavaloccaz/equipements.dart';
@@ -9,8 +10,8 @@ import 'package:kavaloccaz/listeEquipementCavalier.dart';
 import 'package:kavaloccaz/listeEquipementCheval.dart';
 import 'package:kavaloccaz/listePoneys.dart';
 import 'package:kavaloccaz/testFirebase.dart';
-import 'package:kavaloccaz/Vente/VendreCheval.dart';
-import 'package:kavaloccaz/Vente/VendrePoney.dart';
+import 'package:kavaloccaz/Vente/vendreCheval.dart';
+import 'package:kavaloccaz/Vente/vendrePoney.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //initialRoute: '/home',
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => Home(),
         '/emplois': (context) => Emplois("Emplois"),
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         '/equides/poneys': (context) => Poneys(),
         '/testFirebase': (context) => TestFirebase(),
         '/Vente/vendreCheval': (context) => VendreCheval(),
-        '/Vente/vendrePoney': (context) => VendrePoney()
+        '/Vente/vendrePoney': (context) => VendrePoney(),
+        '/Vente/vendreProduit': (context) => VendreProduit()
       },
     );
   }

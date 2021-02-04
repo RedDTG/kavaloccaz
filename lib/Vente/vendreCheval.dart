@@ -172,6 +172,18 @@ class VendreCheval extends StatelessWidget {
                         elevation: 7.5,
                       ),
                     ),
+                    new Container(
+                    width: largeur * 0.95,
+                    height: hauteur * 0.08,
+                    color: Colors.grey,
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(top: 10.0),
+                    child: new Text(
+                      'publicité',
+                      style: TextStyle(color: Colors.black),
+                      textScaleFactor: 1.2,
+                    ),
+                  ),
                   ],
                 ),
                 BottomBarWidget(),
