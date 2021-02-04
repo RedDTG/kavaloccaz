@@ -46,6 +46,14 @@ class BottomBarWidget extends StatelessWidget {
               height: 67,
               decoration: BoxDecoration(
                   shape: BoxShape.circle, color: Colors.white /*(0xFFDCDCDC)*/),
+<<<<<<< HEAD
+              child: IconButton(
+              icon: Image.asset('assets/icons/add.png'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/Vente/vendreProduit');
+              },
+            ),
+=======
               child: Container(
                   margin: EdgeInsets.all(0),
                   padding: EdgeInsets.all(0),
@@ -57,6 +65,7 @@ class BottomBarWidget extends StatelessWidget {
                       Navigator.pushNamed(context, '/vente');
                     },
                   )),
+>>>>>>> red
             ),
           ),
           new Container(

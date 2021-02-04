@@ -101,7 +101,7 @@ class _Home extends State<Home> {
                 textScaleFactor: 1.2,
               ),
             ),
-            /*new Container(
+            /*new Container
               width: largeur,
               height: hauteur * 0.1,
               color: Color(0xFFB6CFFF),
