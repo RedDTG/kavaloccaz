@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../_bottomBar.dart';
 
 // ignore: must_be_immutable
-class VendrePoney extends StatelessWidget {
-  VendrePoney();
+class VendreProduit extends StatelessWidget {
+  VendreProduit();
 
   String nom;
 
@@ -12,10 +12,8 @@ class VendrePoney extends StatelessWidget {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
 
-    return new GestureDetector(
-      onTap: (() => FocusScope.of(context).requestFocus(new FocusNode())),
-      child: Scaffold(
-          body: new Center(
+    return new Scaffold(
+          body: SingleChildScrollView(
         child: new Container(
           margin: EdgeInsets.all(0),
           width: largeur,
@@ -37,7 +35,7 @@ class VendrePoney extends StatelessWidget {
                 children: [
                   new Container(
                       margin: EdgeInsets.only(
-                          top: 20, right: 20, left: 20, bottom: 0),
+                          top: 9, right: 20, left: 20, bottom: 0),
                       child: new Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -165,13 +163,24 @@ class VendrePoney extends StatelessWidget {
                       elevation: 7.5,
                     ),
                   ),
+                  new Container(
+                    width: largeur * 0.95,
+                    height: hauteur * 0.08,
+                    color: Colors.grey,
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(top: 10.0),
+                    child: new Text(
+                      'publicité',
+                      style: TextStyle(color: Colors.black),
+                      textScaleFactor: 1.2,
+                    ),
+                  ),
                 ],
               ),
               BottomBarWidget(),
             ],
           ),
         ),
-      )),
-    );
+      ));
   }
 }
