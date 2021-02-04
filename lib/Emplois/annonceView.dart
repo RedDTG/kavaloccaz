@@ -5,12 +5,8 @@ import 'annonceView_confirm.dart';
 
 class NewAnnonceView extends StatelessWidget {
   final Annonce annonce;
-<<<<<<< HEAD:lib/annonceView.dart
   String choix;
-  newAnnonceView({
-=======
   NewAnnonceView({
->>>>>>> red:lib/Emplois/annonceView.dart
     Key key,
     @required this.choix,
     @required this.annonce,
@@ -107,12 +103,8 @@ class NewAnnonceView extends StatelessWidget {
                       annonce.date = dateNow();
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-<<<<<<< HEAD:lib/annonceView.dart
-                        return newAnnonceView_confirm(
+                        return NewAnnonceViewConfirm(
                             annonce: annonce, choix: choix);
-=======
-                        return NewAnnonceViewConfirm(annonce: annonce);
->>>>>>> red:lib/Emplois/annonceView.dart
                       }));
                     })
               ]),
