@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:kavaloccaz/Emplois/emplois.dart';
 import 'package:kavaloccaz/Equides/equides.dart';
 import 'package:kavaloccaz/Equipements/equipements.dart';
+import 'package:kavaloccaz/Equipements/vendreEquipementCavalier.dart';
+import 'package:kavaloccaz/Equipements/vendreEquipementEquide.dart';
 import 'package:kavaloccaz/home.dart';
 import 'package:kavaloccaz/Equides/listeChevaux.dart';
 import 'package:kavaloccaz/Equipements/listeEquipementCavalier.dart';
@@ -35,7 +37,9 @@ class MyApp extends StatelessWidget {
         '/equides/poneys': (context) => Poneys(),
         '/vente/cheval': (context) => VendreCheval(),
         '/vente/poney': (context) => VendrePoney(),
-        '/vente': (context) => Vente()
+        '/vente': (context) => Vente(),
+        '/vente/vendreEquipementEquide': (context) => VendreEquipementEquide(),
+        '/vente/vendreEquipementCavalier': (context) => VendreEquipementCavalier()
       },
     );
   }
