@@ -1,17 +1,25 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:kavaloccaz/_bottomBar.dart';
+import 'package:kavaloccaz/models/EquidesModel.dart';
 import '../_bottomBar.dart';
 
 // ignore: must_be_immutable
 class VendreCheval extends StatelessWidget {
+  final db = FirebaseFirestore.instance;
   VendreCheval();
-
-  String nom;
 
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
+    TextEditingController _nomController = new TextEditingController();
+    TextEditingController _descriptionController = new TextEditingController();
+    TextEditingController _lieuController = new TextEditingController();
+    TextEditingController _raceController = new TextEditingController();
+    TextEditingController _prixController = new TextEditingController();
+    TextEditingController _tailleController = new TextEditingController();
 
     return new GestureDetector(
         onTap: (() => FocusScope.of(context).requestFocus(new FocusNode())),
@@ -83,8 +91,9 @@ class VendreCheval extends StatelessWidget {
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 2.0),
                               ),
-                              labelText: "Le nom",
+                              labelText: "Nom",
                             ),
+                            controller: _nomController,
                             keyboardType: TextInputType.text,
                           ),
                         ),
@@ -99,9 +108,10 @@ class VendreCheval extends StatelessWidget {
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 2.0),
                               ),
-                              labelText: "La race",
+                              labelText: "Race",
                             ),
                             keyboardType: TextInputType.text,
+                            controller: _raceController,
                           ),
                         ),
                         new Container(
@@ -115,9 +125,10 @@ class VendreCheval extends StatelessWidget {
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 2.0),
                               ),
-                              labelText: "Le prix",
+                              labelText: "Prix (en €)",
                             ),
                             keyboardType: TextInputType.text,
+                            controller: _prixController,
                           ),
                         ),
                         new Container(
@@ -131,9 +142,10 @@ class VendreCheval extends StatelessWidget {
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 2.0),
                               ),
-                              labelText: "Le type de loisirs",
+                              labelText: "Lieu",
                             ),
                             keyboardType: TextInputType.text,
+                            controller: _lieuController,
                           ),
                         ),
                         new Container(
@@ -147,9 +159,10 @@ class VendreCheval extends StatelessWidget {
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 2.0),
                               ),
-                              labelText: "Le poids",
+                              labelText: "Taille (en cm)",
                             ),
                             keyboardType: TextInputType.text,
+                            controller: _tailleController,
                           ),
                         ),
                         new Container(
@@ -163,9 +176,10 @@ class VendreCheval extends StatelessWidget {
                                 borderSide: const BorderSide(
                                     color: Colors.white, width: 2.0),
                               ),
-                              labelText: "Les photos ou vidéos",
+                              labelText: "Description",
                             ),
-                            keyboardType: TextInputType.text,
+                            controller: _descriptionController,
+                            keyboardType: TextInputType.multiline,
                           ),
                         ),
                         new Container(
@@ -176,7 +190,26 @@ class VendreCheval extends StatelessWidget {
                                   Border.all(color: Colors.white, width: 2.0)),
                           margin: EdgeInsets.only(top: 10.0),
                           child: new RaisedButton(
-                            onPressed: () {},
+                            onPressed: () async {
+                              EquidesAnnonce annonceCheval = new EquidesAnnonce(
+                                  _nomController.text,
+                                  _lieuController.text,
+                                  _descriptionController.text,
+                                  dateNow(),
+                                  _raceController.text,
+                                  _prixController.text,
+                                  _tailleController.text);
+
+                              {
+                                await db
+                                    .collection('produits')
+                                    .doc('equides')
+                                    .collection('chevaux')
+                                    .add(annonceCheval.toJson());
+                              }
+                              Navigator.of(context)
+                                  .popUntil((route) => route.isFirst);
+                            },
                             child: new Text('SOUMETTRE',
                                 style: TextStyle(
                                     fontFamily: 'ArchitectsDaughter',
@@ -196,4 +229,11 @@ class VendreCheval extends StatelessWidget {
           ),
         ));
   }
+}
+
+dateNow() {
+  final DateTime now = DateTime.now();
+  final DateFormat formatter = DateFormat('dd-MM-yyyy');
+  final String date = formatter.format(now);
+  return date;
 }
