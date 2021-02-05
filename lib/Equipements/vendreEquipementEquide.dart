@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../_bottomBar.dart';
 
 // ignore: must_be_immutable
-class VendreProduit extends StatelessWidget {
-  VendreProduit();
+class VendreEquipementEquide extends StatelessWidget {
+  VendreEquipementEquide();
 
   String nom;
 
@@ -43,7 +43,7 @@ class VendreProduit extends StatelessWidget {
                                 margin: EdgeInsets.only(right: 5),
                                 width: largeur * 0.35,
                                 child: Image.asset('assets/img/logo.png')),
-                            new Text('Equipement',
+                            new Text('Equipement \n Equide',
                                 style: TextStyle(
                                     fontSize: 30,
                                     fontFamily: 'ArchitectsDaughter',

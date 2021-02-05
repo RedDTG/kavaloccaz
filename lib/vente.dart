@@ -120,9 +120,9 @@ class Vente extends StatelessWidget {
                       height: hauteur * 0.06,
                       child: new RaisedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/vente/cheval');
+                          Navigator.pushNamed(context, '/vente/vendreEquipementEquide');
                         },
-                        child: new Text('Equipement cheval',
+                        child: new Text('Equipement equide',
                             textAlign: TextAlign.center,
                             style: TextStyle(fontFamily: 'ArchitectsDaughter')),
                         color: Color(0xFFCDCDCD),
@@ -148,7 +148,7 @@ class Vente extends StatelessWidget {
                       height: hauteur * 0.06,
                       child: new RaisedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/vente/poney');
+                          Navigator.pushNamed(context, '/vente/vendreEquipementCavalier');
                         },
                         child: new Text('Equipement cavalier',
                             textAlign: TextAlign.center,
