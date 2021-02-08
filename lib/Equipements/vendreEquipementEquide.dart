@@ -1,16 +1,21 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:kavaloccaz/models/equipementEquideModel.dart';
 import '../_bottomBar.dart';
-
-// ignore: must_be_immutable
 class VendreEquipementEquide extends StatelessWidget {
   VendreEquipementEquide();
 
-  String nom;
+  final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
+    TextEditingController _nomController = new TextEditingController();
+    TextEditingController _categorieController = new TextEditingController();
+    TextEditingController _prixController = new TextEditingController();
+    TextEditingController _pourQuiController = new TextEditingController();
+    TextEditingController _tailleController = new TextEditingController();
 
     return new Scaffold(
           body: SingleChildScrollView(
@@ -72,6 +77,7 @@ class VendreEquipementEquide extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _nomController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide:
@@ -88,10 +94,10 @@ class VendreEquipementEquide extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _categorieController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.white, width: 2.0),
+                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
                         ),
                         labelText: "La catégorie",
                       ),
@@ -104,6 +110,7 @@ class VendreEquipementEquide extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _prixController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide:
@@ -120,12 +127,13 @@ class VendreEquipementEquide extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _tailleController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide:
                               const BorderSide(color: Colors.white, width: 2.0),
                         ),
-                        labelText: "Pour qui ?",
+                        labelText: "La taille ",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -133,15 +141,16 @@ class VendreEquipementEquide extends StatelessWidget {
                   new Container(
                     width: largeur * 0.55,
                     height: hauteur * 0.06,
-                    margin: EdgeInsets.only(top: 7.0),
+                    margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _pourQuiController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide:
                               const BorderSide(color: Colors.white, width: 2.0),
                         ),
-                        labelText: "Les photos ou vidéos",
+                        labelText: "Pour qui ? ",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -153,7 +162,22 @@ class VendreEquipementEquide extends StatelessWidget {
                         border: Border.all(color: Colors.white, width: 2.0)),
                     margin: EdgeInsets.only(top: 10.0),
                     child: new RaisedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        EquipementEquide equipementEquide = new EquipementEquide(
+                          _nomController.text,
+                          _categorieController.text, 
+                          _prixController.text, 
+                          _pourQuiController.text, 
+                          _tailleController.text);
+                          {
+                            await db
+                            .collection('produits')
+                            .doc('equipements')
+                            .collection('cheval')
+                            .add(equipementEquide.toJson());
+                          }
+                          Navigator.of(context).popUntil((route) => route.isFirst);
+                      },
                       child: new Text('SOUMETTRE',
                           style: TextStyle(
                               fontFamily: 'ArchitectsDaughter',

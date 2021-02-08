@@ -1,17 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:kavaloccaz/models/equipementCavalierModel.dart';
 import '../_bottomBar.dart';
 
 // ignore: must_be_immutable
 class VendreEquipementCavalier extends StatelessWidget {
   VendreEquipementCavalier();
 
-  String nom;
+    final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
     double largeur = MediaQuery.of(context).size.width;
     double hauteur = MediaQuery.of(context).size.height;
-
+        TextEditingController _nomController = new TextEditingController();
+    TextEditingController _descriptionController = new TextEditingController();
+    TextEditingController _prixController = new TextEditingController();
+    TextEditingController _lieuController = new TextEditingController();
+    TextEditingController _marqueController = new TextEditingController();
     return new Scaffold(
           body: SingleChildScrollView(
         child: new Container(
@@ -72,6 +78,7 @@ class VendreEquipementCavalier extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _nomController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide:
@@ -88,12 +95,13 @@ class VendreEquipementCavalier extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _descriptionController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide:
                               const BorderSide(color: Colors.white, width: 2.0),
                         ),
-                        labelText: "La catégorie",
+                        labelText: "La description",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -104,6 +112,7 @@ class VendreEquipementCavalier extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _prixController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide:
@@ -120,12 +129,11 @@ class VendreEquipementCavalier extends StatelessWidget {
                     margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _lieuController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.white, width: 2.0),
-                        ),
-                        labelText: "Pour qui ?",
+                          borderSide:const BorderSide(color: Colors.white, width: 2.0)),
+                        labelText: "Ou est le produit",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -133,15 +141,14 @@ class VendreEquipementCavalier extends StatelessWidget {
                   new Container(
                     width: largeur * 0.55,
                     height: hauteur * 0.06,
-                    margin: EdgeInsets.only(top: 7.0),
+                    margin: EdgeInsets.all(7.0),
                     color: Color(0xFFCDCDCD),
                     child: new TextField(
+                      controller: _marqueController,
                       decoration: new InputDecoration(
                         enabledBorder: const OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.white, width: 2.0),
-                        ),
-                        labelText: "Les photos ou vidéos",
+                          borderSide:const BorderSide(color: Colors.white, width: 2.0)),
+                        labelText: "La marque",
                       ),
                       keyboardType: TextInputType.text,
                     ),
@@ -151,9 +158,24 @@ class VendreEquipementCavalier extends StatelessWidget {
                     height: hauteur * 0.06,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.white, width: 2.0)),
-                    margin: EdgeInsets.only(top: 10.0),
+                    margin: EdgeInsets.only(top: 12.0),
                     child: new RaisedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        EquipementCavalier equipementCavalier = new EquipementCavalier(
+                          _nomController.text, 
+                          _descriptionController.text, 
+                          _prixController.text, 
+                          _lieuController.text, 
+                          _marqueController.text);
+                          {
+                            await db
+                            .collection('produits')
+                            .doc('equipements')
+                            .collection('cavalier')
+                            .add(equipementCavalier.toJson());
+                          }
+                          Navigator.of(context).popUntil((route) => route.isFirst);
+                      },
                       child: new Text('SOUMETTRE',
                           style: TextStyle(
                               fontFamily: 'ArchitectsDaughter',
